@@ -238,13 +238,9 @@ while not key_press:
                                 print("user_time_rsp:", user_time_rsp)
                                 print("user_time_reading:", user_time_reading)
                             elif event.key == pygame.K_r:
-                                rsp_diffs = [abs(e[1] - e[0]) for e in itertools.permutations(user_time_rsp, 2)]
-                                results_rps=sum(rsp_diffs) / len(rsp_diffs)
-                                reading_diffs = [abs(e[1] - e[0]) for e in itertools.permutations(user_time_reading, 2)]
-                                results_reading=sum(reading_diffs) / len(reading_diffs)
-                                results1 =[(results_rps/1000)]
-                                results2 =[(results_reading/1000)]
-                                plotting(results1,results2)
+                                results1=average_difference(user_time_rsp)
+                                results2 = average_difference(user_time_reading)
+                                plotting([results1],[results2])
                                 screen.fill(beige)
                                 trial= pygame.image.load('trial.png')
                                 scaling_factor = 1.5
@@ -253,16 +249,16 @@ while not key_press:
                                 new_height = int(original_height * scaling_factor)
                                 trial = pygame.transform.scale(trial, (new_width, new_height))
                                 screen.blit(trial, (0, 0))
-                                results1 = instructionss.render(f'Results rsp task:{(results_rps/1000):.1f} s', True,
+                                results1 = instructionss.render(f'Results rsp task:{(results1/1000):.1f} s', True,
                                                                                    (light_pink))
                                 screen.blit(results1, (width / 1.5, (height / 4) + 120))
-                                results2 = instructionss.render(f'Results reading task:{(results_reading/1000):.1f} s', True,
+                                results2 = instructionss.render(f'Results reading task:{(results2/1000):.1f} s', True,
                                                                                    (light_pink))
                                 screen.blit(results2, (width / 1.5, (height / 4) + 160))
                                 print(user_time_rsp)
                                 print(user_time_reading)
-                                print(results_rps)
-                                print(results_reading)
+                                print(results1)
+                                print(results2)
                                 pygame.display.update()
                                 pygame.display.flip()
 key_press=False
