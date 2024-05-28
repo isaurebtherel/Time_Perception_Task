@@ -7,6 +7,7 @@ import random
 from sys import exit
 pygame.init() # starts pygame
 from settings import *
+from plotting import *
 ##### requirements #####
 ##### settings #####
 
@@ -241,18 +242,27 @@ while not key_press:
                                 results_rps=sum(rsp_diffs) / len(rsp_diffs)
                                 reading_diffs = [abs(e[1] - e[0]) for e in itertools.permutations(user_time_reading, 2)]
                                 results_reading=sum(reading_diffs) / len(reading_diffs)
+                                results1 =[(results_rps/1000)]
+                                results2 =[(results_reading/1000)]
+                                plotting(results1,results2)
                                 screen.fill(beige)
+                                trial= pygame.image.load('trial.png')
+                                scaling_factor = 1.5
+                                original_width, original_height = trial.get_size()
+                                new_width = int(original_width * scaling_factor)
+                                new_height = int(original_height * scaling_factor)
+                                trial = pygame.transform.scale(trial, (new_width, new_height))
+                                screen.blit(trial, (0, 0))
                                 results1 = instructionss.render(f'Results rsp task:{(results_rps/1000):.1f} s', True,
                                                                                    (light_pink))
-                                screen.blit(results1, (width / 4, (height / 4) + 120))
+                                screen.blit(results1, (width / 1.5, (height / 4) + 120))
                                 results2 = instructionss.render(f'Results reading task:{(results_reading/1000):.1f} s', True,
                                                                                    (light_pink))
-                                screen.blit(results2, (width / 4, (height / 4) + 160))
+                                screen.blit(results2, (width / 1.5, (height / 4) + 160))
                                 print(user_time_rsp)
                                 print(user_time_reading)
                                 print(results_rps)
                                 print(results_reading)
-                                
                                 pygame.display.update()
                                 pygame.display.flip()
 key_press=False
