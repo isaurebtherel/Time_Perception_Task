@@ -37,12 +37,12 @@ reading = [[189898, 206883, 231964, 243252, 265638, 277996, 292349, 306087, 3695
 rsp_avg_diffs = average_difference_list_of_lists(rsp)
 reading_avg_diffs = average_difference_list_of_lists(reading)
 
-def plotting(results1,results2):
+def plotting(results_rsp1,results_reading2):
     light_blue = (216 / 255, 233 / 255, 248 / 255)
     light_pink = (246 / 255, 230 / 255, 230 / 255)
     bubbles = (155/255, 218/255, 210/255)
     # Data
-    x = rsp_avg_diffs + results1 + reading_avg_diffs + results2
+    x = rsp_avg_diffs + results_rsp1 + reading_avg_diffs + results_reading2
     y = numbers = list(range(1, len(x)+1))
     colors = [light_blue, light_blue, light_blue, light_blue, light_blue, light_blue, light_blue, light_blue,bubbles, light_pink, light_pink, light_pink, light_pink, light_pink, light_pink, light_pink, light_pink, bubbles]
 
