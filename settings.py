@@ -113,6 +113,28 @@ reading_instructions7 = instructionss.render('Press D to acess the second text',
 reading_instructions8 = instructionss.render('Press T when 30 seconds have passed', True, (light_blue))
 ### instructions ###
 
+def rsp_after_choice(score):
+    score_surface = score_font.render(('Score:' + str(score)), True, (bubbles))
+    screen.blit(score_surface, (width / 10, (height / 20)))
+    instructions = pygame.font.Font('Brightly_Crush.ttf', 20)
+    answer3 = instructions.render('Press L for the reading task once score:10', True, (bubbles))
+    screen.blit(answer3, (width / 4 + 600, (height / 4) + 530))
+    pygame.display.update()
+    pygame.time.delay(2000)
+    screen.fill(beige)
+    instructions = pygame.font.Font('Brightly_Crush.ttf', 20)
+    answer3 = instructions.render('Press L for the reading task once score:10', True, (bubbles))
+    screen.blit(answer3, (width / 4 + 600, (height / 4) + 530))
+    pygame.display.update()
+
+def reading_after_choice():
+    pygame.display.update()
+    pygame.time.delay(2000)
+    screen.fill(beige)
+    answer3 = instructionss.render('Press N for the next question', True, (light_blue))
+    screen.blit(answer3, (width / 4 + 550, (height / 4) + 530))
+    pygame.display.update()
+
 questions=[
     "Was Jenny Fields arrested in Boston in 1942?",
     "Did the incident at the movie theater happen shortly after the bombing of Pearl Harbor?",
