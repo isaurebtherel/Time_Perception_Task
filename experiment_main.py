@@ -96,18 +96,7 @@ while not key_press:
                 if computer_answer == "ciseaux.jpg":
                     score = score +1
                     win.play()
-                score_surface = score_font.render(('Score:' + str(score)), True, (bubbles))
-                screen.blit(score_surface, (width / 10, (height / 20)))
-                instructions = pygame.font.Font('Brightly_Crush.ttf', 20)
-                answer3 = instructions.render('Press L for the reading task once score:10', True, (bubbles))
-                screen.blit(answer3, (width / 4 + 600, (height / 4) + 530))
-                pygame.display.update()
-                pygame.time.delay(2000)
-                screen.fill(beige)
-                instructions = pygame.font.Font('Brightly_Crush.ttf', 20)
-                answer3 = instructions.render('Press L for the reading task once score:10', True, (bubbles))
-                screen.blit(answer3, (width / 4 + 600, (height / 4) + 530))
-                pygame.display.update()
+                rsp_after_choice(score)
             elif event.key == pygame.K_s:
                 rsp('ciseaux.jpg')
                 answer = "ciseaux.jpg"
@@ -120,18 +109,7 @@ while not key_press:
                 if computer_answer == "pierre.jpg":
                     score = score -1
                     loss.play()
-                score_surface = score_font.render(('Score:' + str(score)), True, (bubbles))
-                screen.blit(score_surface, (width / 10, (height / 20)))
-                instructions = pygame.font.Font('Brightly_Crush.ttf', 20)
-                answer3 = instructions.render('Press L for the reading task once score:10', True, (bubbles))
-                screen.blit(answer3, (width / 4 + 600, (height / 4) + 530))
-                pygame.display.update()
-                pygame.time.delay(2000)
-                screen.fill(beige)
-                instructions = pygame.font.Font('Brightly_Crush.ttf', 20)
-                answer3 = instructions.render('Press L for the reading task once score:10', True, (bubbles))
-                screen.blit(answer3, (width / 4 + 600, (height / 4) + 530))
-                pygame.display.update()
+                rsp_after_choice(score)
             elif event.key == pygame.K_p:
                 rsp("papier.jpg")
                 answer ="papier.jpg"
@@ -144,22 +122,7 @@ while not key_press:
                 if computer_answer == "pierre.jpg":
                     score = score +1
                     win.play()
-                score_surface = score_font.render(('Score:' + str(score)), True, (bubbles))
-                screen.blit(score_surface, (width / 10, (height / 20)))
-                instructions = pygame.font.Font('Brightly_Crush.ttf', 20)
-                answer3 = instructions.render('Press L for the reading task once score:10', True, (bubbles))
-                screen.blit(answer3, (width / 4 + 600, (height / 4) + 530))
-                pygame.display.update()
-                pygame.time.delay(2000)
-                screen.fill(beige)
-                instructions = pygame.font.Font('Brightly_Crush.ttf', 20)
-                answer3 = instructions.render('Press L for the reading task once score:10', True, (bubbles))
-                screen.blit(answer3, (width / 4 + 600, (height / 4) + 530))
-                pygame.display.update()
-            elif event.key == pygame.K_t:
-               print(pygame.time.get_ticks())
-               print("time")
-               user_time_rsp.append(pygame.time.get_ticks())
+                rsp_after_choice(score)
                ######### rsp task #######
                ######### reading task #######
             elif event.key == pygame.K_l:
@@ -205,19 +168,9 @@ while not key_press:
                                 pygame.display.update()
                                 pygame.display.flip()
                             elif event.key == pygame.K_a:
-                                pygame.display.update()
-                                pygame.time.delay(2000)
-                                screen.fill(beige)
-                                answer3= instructionss.render('Press N for the next question', True, (light_blue))
-                                screen.blit(answer3,(width / 4+550, (height / 4) + 530))
-                                pygame.display.update()
+                                reading_after_choice()
                             elif event.key == pygame.K_b:
-                                pygame.display.update()
-                                pygame.time.delay(2000)
-                                screen.fill(beige)
-                                answer3= instructionss.render('Press N for the next question', True, (light_blue))
-                                screen.blit(answer3,(width / 4+550, (height / 4) + 530))
-                                pygame.display.update()
+                                reading_after_choice()
                             elif event.key == pygame.K_t:
                                 print(pygame.time.get_ticks())
                                 print("time")
