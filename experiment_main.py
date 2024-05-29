@@ -54,7 +54,7 @@ pygame.display.update()
 pygame.display.flip()
 
 
-######### rock paper scissors game #######
+######### rock paper scissors game instructions #######
 computer_choices=['papier.jpg','pierre.jpg','ciseaux.jpg']
 def rsp(choice):
     screen.blit(rsp_choice, ((width - r_instruction.get_width()) / 1.75, height / 5))
@@ -66,12 +66,14 @@ def rsp(choice):
 
 timing=[]
 
+######### rock paper scissors game instructions #######
 
-
+######### whole task #######
 i=0
 key_press=False
 score=0
 while not key_press:
+    ######### rsp task #######
        for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -158,6 +160,8 @@ while not key_press:
                print(pygame.time.get_ticks())
                print("time")
                user_time_rsp.append(pygame.time.get_ticks())
+               ######### rsp task #######
+               ######### reading task #######
             elif event.key == pygame.K_l:
                 user_time_reading=[]
                 pnj_pos = 1300
@@ -237,10 +241,12 @@ while not key_press:
                                 print("rrr")
                                 print("user_time_rsp:", user_time_rsp)
                                 print("user_time_reading:", user_time_reading)
+                                ######### reading task #######
+                                ######### results #######
                             elif event.key == pygame.K_r:
-                                results1=average_difference(user_time_rsp)
-                                results2 = average_difference(user_time_reading)
-                                plotting([results1],[results2])
+                                results_rsp1=average_difference(user_time_rsp)
+                                results_reading2 = average_difference(user_time_reading)
+                                plotting([results_rsp1],[results_reading2])
                                 screen.fill(beige)
                                 trial= pygame.image.load('trial.png')
                                 scaling_factor = 1.5
@@ -249,18 +255,21 @@ while not key_press:
                                 new_height = int(original_height * scaling_factor)
                                 trial = pygame.transform.scale(trial, (new_width, new_height))
                                 screen.blit(trial, (0, 0))
-                                results1 = instructionss.render(f'Results rsp task:{(results1/1000):.1f} s', True,
+                                results_rsp1 = instructionss.render(f'Results rsp task:{(results_rsp1/1000):.1f} s', True,
                                                                                    (light_pink))
-                                screen.blit(results1, (width / 1.5, (height / 4) + 120))
-                                results2 = instructionss.render(f'Results reading task:{(results2/1000):.1f} s', True,
+                                screen.blit(results_rsp1, (width / 1.5, (height / 4) + 120))
+                                results_reading2 = instructionss.render(f'Results reading task:{(results_reading2/1000):.1f} s', True,
                                                                                    (light_pink))
-                                screen.blit(results2, (width / 1.5, (height / 4) + 160))
+                                screen.blit(results_reading2, (width / 1.5, (height / 4) + 160))
                                 print(user_time_rsp)
                                 print(user_time_reading)
-                                print(results1)
-                                print(results2)
+                                print(results_rsp1)
+                                print(results_reading2)
                                 pygame.display.update()
                                 pygame.display.flip()
+                                ######### results #######
+######### whole task #######
+
 key_press=False
 while not key_press:
        for event in pygame.event.get():
